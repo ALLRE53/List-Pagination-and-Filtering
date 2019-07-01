@@ -2,7 +2,7 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
-   
+
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
 
@@ -21,64 +21,69 @@ const list = document.getElementsByClassName('student-item');
 //console.log(list);
 
 const page = 10;
-//console.log(page);
 
 
 
-showPage = (list, page) => {
 
-   let page_num;
+const showPage = (list, page_num) => {
+
+
    let start_index = (page_num * page) - page;
    let end_index = (page_num * page);
 
 
    for (let i = 0; i < list.length; i += 1) {
 
-      if (list[i] >= start_index && list[i] < end_index) {
+      if (i >= start_index && i < end_index) {
+
          list[i].style.display = 'block';
-            
+
       } else {
+
          list[i].style.display = 'none';
       }
 
    }
 }
+showPage(list, 2);
 
 
+const appendPageLinks = (list) => {
 
-/*console.log(stu_item_new);
 
-/*   const num_items_display_pp = 10;
-/*   console.log(num_items_display_pp);
-/*   
-
-/*   const show_page = (student_list_index, page_parameter) => {
-     if student_list_index >= page_parameter -- && alert(student_list_index)
+   let currentPage;                              //Tracks pages
+   let getNumberOfPages = Math.ceil(list.length / page);
+   let pageList;                                 //Display on current page//
+   let div = document.createElement('div');      //Creation of new div//
+   div.classList.add('pagination');             //Added pagination class//
+   page.appenChild('div');                     //Appended to the class page in div?//
+   $('div ul').apppend('<li> <a> </a> </li>');  /*Added ul to the pagination div to store pagination links.
+                                                 Append will select all class names enclosed in the div element, in this casse
+                                                 includes the Pagination Class! */
 
 
 }
 
-
-/*** 
-   Create the `showPage` function to hide all of the items in the 
+/***
+   Create the `showPage` function to hide all of the items in the
    list except for the ten you want to show.
 
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
+   Pro Tips:
+     - Keep in mind that with a list of 54 students, the last page
        will only display four.
      - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
+     - Remember that a function `parameter` goes in the parens when
+       you initially define the function, and it acts as a variable
+       or a placeholder to represent the actual function `argument`
+       that will be passed into the parens later when you call or
+       "invoke" the function
 ***/
 /*function showPage()
 
 
 
-/*** 
-   Create the `appendPageLinks function` to generate, append, and add 
+/***
+   Create the `appendPageLinks function` to generate, append, and add
    functionality to the pagination buttons.
 ***/
 
